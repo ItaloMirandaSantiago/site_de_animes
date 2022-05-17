@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import './App.css';
-import Search from './Search_input'
+import './App.scss';
+import Search from './components/Search_input'
+import Description from './components/Description'
 
 const api = 'https://kitsu.io/api/edge/'
 
@@ -29,13 +30,18 @@ function App() {
       {info.data && (
         <ul className='animes-list'>
           {info.data.map((item)=>(
+
             <li key={item.id}>
-              <img src={item.attributes.posterImage.small} 
-              alt={item.attributes.canonicalTitle}
-              />
-              {item.attributes.canonicalTitle}
-              {console.log(item)}
+              <button onClick={()=>{Description(item.attributes.canonicalTitle)}}>
+
+                <img src={item.attributes.posterImage.small} 
+                alt={item.attributes.canonicalTitle}
+                />
+                <p>{item.attributes.canonicalTitle}</p>
+                {/* {console.log(item)} */}
+              </button>
             </li>
+
           ))}
         </ul>
       )}
