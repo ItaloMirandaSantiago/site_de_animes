@@ -1,5 +1,5 @@
 import { useRef } from "react"
-
+//tempo entre uma chamada e outra
 export default function useDebounce(fn, delay) {
 
     const time = useRef(null)

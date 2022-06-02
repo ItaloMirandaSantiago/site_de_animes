@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import useDebounce from './useDebounce'
+//barra de pesquisa
 
-const SearchInput = ({value, onchange}) => {
-    const [display_value, set_display_value] = useState(value)
+const SearchInput = ({text, onchange}) => {
+    const [display_value, set_display_value] = useState(text)
     const debouncedChange = useDebounce(onchange, 500)
-
 
     function handleChange(event) {
         set_display_value(event.target.value)

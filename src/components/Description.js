@@ -1,27 +1,16 @@
-import React from 'react'
+import  React from 'react'
 
-export default  function Description(title) {
-    class Obj_descri {
-        constructor(img, title, descri, date){
-            this.img = img
-            this.title = title
-            this.description = descri
-            this.date = date
-        }
-        show(){
-            return console.log(this.title, this.img)
-        }
-    }
-    return(
+export default function Description(props) {
+    return (
         <div>
-            <img></img>
-            <h2>{title}</h2>
+            <h2>{props.description_obj.attributes.canonicalTitle}</h2>
+
+            {console.log(props.description_obj)}
+
+            <img src={props.description_obj.attributes.posterImage.small} alt='imagem do anime'/>
+
+            <p>Descrição: {props.description_obj.attributes.description}</p>
+
         </div>
     )
 }
-
-
-
-
-
-
