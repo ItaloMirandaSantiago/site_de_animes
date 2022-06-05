@@ -27,6 +27,17 @@ body{
       display: block;
     }
 }
+// search
+.search{
+  box-sizing: none;
+  border: none;
+  text-decoration: none;
+  
+    .search:hover{
+      border: none;
+    }
+}
+// search
 
 // loading
 
@@ -42,3 +53,33 @@ body{
 }
 
 // loading
+
+//descrition
+.info_{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    div{
+      color: chartreuse;
+      margin-left: 30px;
+    }
+
+}
+
+.description_text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+      p{
+        max-width: 500px;
+      }
+}
+
+//descrition
+
+//informations
+.informations{
+  text-align: left;
+  margin-left: 30px;
+}
+//informations

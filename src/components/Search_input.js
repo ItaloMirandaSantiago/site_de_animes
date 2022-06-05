@@ -12,7 +12,8 @@ const SearchInput = ({text, onchange}) => {
     }
 
     return (
-        <input type='search'
+        <input className='search'
+        type='search'
         value={display_value} 
         onChange={handleChange}
         />
