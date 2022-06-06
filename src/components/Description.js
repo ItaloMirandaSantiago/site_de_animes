@@ -1,16 +1,23 @@
-import  React from 'react'
+import  React, { useEffect, useState } from 'react'
 
 export default function Description(props) {
 
+    const [items, set_items] = useState([])
     const description = props.description_obj.attributes
+
+    useEffect(()=>{
+        set_items(JSON.parse(localStorage.getItem('items_save')))
+    }, [])
+
+    useEffect(()=>{
+        if (items.length) {
+            localStorage.setItem('items_save', JSON.stringify(items))
+        }
+    }, [items])
 
     function save() {
         console.log('feito')
-        if (props.items) {
-            localStorage.setItem('items_save', JSON.stringify([...props.items, props.description_obj]))
-        }else{
-            localStorage.setItem('items_save', JSON.stringify([props.description_obj]))
-        }
+        set_items((e)=>[...e, props.description_obj])
     }
 
     return (
@@ -20,7 +27,7 @@ export default function Description(props) {
             <div className='info_'>
                 <img src={description.posterImage.small} alt='imagem do anime'/>
                 <div>
-                    {console.log(props.description_obj)}
+
                     <p>Status: {description.status}</p>
 
                     <p>Ultimo lançamento: {description.endDate}</p>

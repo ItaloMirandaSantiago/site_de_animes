@@ -26,13 +26,11 @@ function App() {
   }, [text])
 
   useEffect(()=>{
-//  localStorage.clear()
-    let save = JSON.parse(localStorage.getItem('items_save'))
-    if (save) {
-      console.log(save)
-      set_items({save})
-    }
-  }, [])
+//
+   // if (items.length) {
+  //    localStorage.setItem('items_save', JSON.stringify(items)) 
+//    }
+  }, [items])
 
   return (
     <div className="App">
@@ -45,7 +43,7 @@ function App() {
       )}
 
       {!text && (
-        <Infomations items={items} description_item={(obj)=>set_description_obj(obj)}/>
+        <Infomations description_item={(obj)=>set_description_obj(obj)}/>
       )}
 
       {info.data && !description_obj.verification && text && (
@@ -53,7 +51,7 @@ function App() {
       )}
 
       {info.data && description_obj.verification && text && (
-        <Description description_obj={description_obj} items={items}/>
+        <Description  set_items={set_items}  items={items} description_obj={description_obj}/>
       )}
 
 

@@ -1,23 +1,28 @@
 import React from "react";
 
 export default function Informations(props) {
-    const items = props.items
+ //   const items = props.items
 
     function verification(item) {
         item['verification'] = true
-
         props.description_item(item)
     }
-  console.log(items.length)
+
+  const array = JSON.parse(localStorage.getItem('items_save'))
+  if (array) {
+        console.log(array)
+
+ //     array.map(i=>(console.log(i.id), console.log(i.attributes.posterImage.small), console.log(i.attributes.canonicalTitle)))
+  }
+
     return(
         <div className="informations">
             <h2>Animes salvos...</h2>
 
-                <div>
-                    {items > 0 && (
-
+            <div>
+                {array && (
                         <ul className="animes-list">
-                            {items.map((item)=>(
+                            {array.map((item)=>(
                                 <li key={item.id} className={item.id}>
                                     <button onClick={()=>verification(item)}>
         
