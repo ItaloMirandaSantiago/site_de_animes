@@ -19,7 +19,7 @@ export default  function Description(props) {
 
                         <li key={item.id} className={item.id}>
                             <button onClick={()=>verification(item)}>
-
+                                {console.log(item)}
                                 <img src={item.attributes.posterImage.small} 
                                 alt={item.attributes.canonicalTitle}
                                 />

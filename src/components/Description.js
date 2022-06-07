@@ -1,13 +1,14 @@
 import  React, { useEffect, useState } from 'react'
 
 export default function Description(props) {
-
     const [items, set_items] = useState([])
     const description = props.description_obj.attributes
 
     useEffect(()=>{
-        set_items(JSON.parse(localStorage.getItem('items_save')))
-    }, [])
+        let valor_localStorage = localStorage.getItem('items_save')
+        if(valor_localStorage != null){
+            set_items(JSON.parse(valor_localStorage))
+        }}, [])
 
     useEffect(()=>{
         if (items.length) {
