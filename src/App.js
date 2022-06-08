@@ -4,6 +4,7 @@ import SearchInput from './components/Search_input'
 import Results from './components/Results'
 import Description from './components/Description'
 import Infomations from './components/Informations'
+import BestAnimes from './components/BestAnimes'
 
 const api = 'https://kitsu.io/api/edge/'
 
@@ -21,16 +22,10 @@ function App() {
         .then((res)=>res.json())
         .then((res)=>{
           setInfo(res)
+          console.log(res)
         })
     }
   }, [text])
-
-  useEffect(()=>{
-//
-   // if (items.length) {
-  //    localStorage.setItem('items_save', JSON.stringify(items)) 
-//    }
-  }, [items])
 
   return (
     <div className="App">
@@ -43,19 +38,19 @@ function App() {
       )}
 
       {!text && (
-        <Infomations description_item={(obj)=>set_description_obj(obj)}/>
+        <div>
+          <Infomations description_item={(obj)=>set_description_obj(obj)}/>
+          <BestAnimes />
+        </div>
       )}
 
       {info.data && !description_obj.verification && text && (
         <Results info={info} description_item={(obj)=>set_description_obj(obj)} />
       )}
 
-      {info.data && description_obj.verification && text && (
+      {info.data && description_obj.verification && text &&(
         <Description  set_items={set_items}  items={items} description_obj={description_obj}/>
       )}
-
-
-
     </div>
   );
 }

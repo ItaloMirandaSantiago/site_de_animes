@@ -17,8 +17,17 @@ export default function Description(props) {
     }, [items])
 
     function save() {
-        console.log('feito')
-        set_items((e)=>[...e, props.description_obj])
+        let verificar = true
+        for (let i = 0; i < items.length; i++) {
+//            verificar = true
+            if(props.description_obj.id === items[i].id) {
+                alert('Este anime já esta adicionado na sua lista de salvos')
+                verificar = false
+            }
+        }
+            if (verificar) {
+                set_items((e)=>[...e, props.description_obj])
+            }
     }
 
     return (
