@@ -2,9 +2,14 @@ import React from "react";
 
 export default function InforDescription(props) {
     const array = props.Description.attributes
+
+    function voltar() {
+        props.setDescription(false)
+        
+    }
     return(
         <div>
-                    <div>
+                    <div className="text-aling">
                     <h2>{array.canonicalTitle}</h2>
 
                     <div className='info_'>
@@ -20,6 +25,10 @@ export default function InforDescription(props) {
                             <p>Idade indicada: {array.ageRatingGuide} </p>
 
                             <p>Rank de popularidade: {array.popularityRank}</p>
+
+                            <div>
+                                <button onClick={()=>{voltar()}}>Voltar</button>
+                            </div>
 
                         </div>
                     </div>

@@ -19,8 +19,8 @@ export default function BestAnimes() {
 
                     {animes.data.map((item)=>(
                             <li key={item.id} className={item.id}>
-                                <button onClick={()=>console.log(item)}>
-                                    <img src={item.attributes.posterImage.small} 
+                                <button className="img_comprimida" onClick={()=>console.log(item)}>
+                                    <img src={item.attributes.posterImage.tiny} 
                                     alt={item.attributes.canonicalTitle}
                                     />
                                     <p>{item.attributes.canonicalTitle}</p>
