@@ -5,7 +5,6 @@ export default function InforDescription(props) {
 
     function voltar() {
         props.setDescription(false)
-        
     }
     return(
         <div>

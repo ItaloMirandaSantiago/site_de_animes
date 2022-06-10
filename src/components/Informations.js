@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import InforDescription from "./inforDescription";
 
 export default function Informations(props) {
-    const [array, setArray] = useState([])
+    const [Array, setArray] = useState([])
     const img_fechar = 'https://cdn-icons-png.flaticon.com/512/106/106830.png'
     const [Description, setDescription] = useState({})
 
@@ -20,35 +20,30 @@ export default function Informations(props) {
     }
 
     function excluir(item) {
-        if (item !== null) {
-            
-            for (let i = 0; i < array.length; i++) {
-                if (item.id === array[i].id) {
-                    let new_array = array
+            for (let i = 0; i < Array.length; i++) {
+                if (item.id === Array[i].id) {
+                    let new_array = Array
                     new_array[i].verification = false
                     new_array.splice(i,1)
-                    setArray(()=>new_array)
+                    setArray(new_array)
                     localStorage.setItem('items_save', JSON.stringify(new_array))
                 }
                 let list = document.getElementsByClassName(item.id)[0]
                 list.classList.add('excluir')
             }
-        }
     }
-    useEffect(()=>{
-        console.log(array)
-    }, [array])
+
 
     return(
         <div className="informations">
             
             <div>
 
-            {array.length > 0 && array != null && !Description.verification && (
+            {Array != null && !Description.verification && (
                 <div>
                         <h2 className="h2_margin">Animes salvos...</h2>
                         <ul className="animes-list">
-                            {array.map((item)=>(
+                            {Array.map((item)=>(
                                 item.id && (
                                 <li key={item.id} className={item.id}>
                                     {console.log(item)}
@@ -71,10 +66,13 @@ export default function Informations(props) {
                                 )
                             ))}
                         </ul>
+                        {Array.length > 0 && (
+                            <div><h2>Funcionando</h2></div>
+                        )}
                 </div>
                 )}
                 {Description.verification && (
-                    <InforDescription Description={Description} setDescription={(e)=>setDescription(e)}/>
+                   <InforDescription Description={Description} setDescription={(e)=>setDescription(e)}/>
                 )}
             
 
