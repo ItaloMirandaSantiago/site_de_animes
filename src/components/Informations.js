@@ -39,7 +39,7 @@ export default function Informations(props) {
             
             <div>
 
-            {Array != null && !Description.verification && (
+            {Array.length > 0 && Array != null && !Description.verification && (
                 <div>
                         <h2 className="h2_margin">Animes salvos...</h2>
                         <ul className="animes-list">
