@@ -121,6 +121,12 @@ body{
   border-color: buttonborder;
   border-image: initial;
   max-width: 160px;
+
+  max-width: 160px;
+    height: 262px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .img{
@@ -158,5 +164,10 @@ margin-bottom: 0;
 //bestanimes
 .img_comprimida{
   width: 150px;
+  max-width: 150px;
+  height: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 //bestanimes
