@@ -4,8 +4,8 @@ import InforDescription from "./inforDescription";
 export default function Informations(props) {
     const [Array, setArray] = useState([])
     const img_fechar = 'https://cdn-icons-png.flaticon.com/512/106/106830.png'
-    const [Description, setDescription] = useState({})
-    const [verificar, setVerificar] = useState(false)
+    const [Description, setDescription] = useState([])
+    const [verificar, setVerificar] = useState(true)
 
     useEffect(()=>{
         let local_items = JSON.parse(localStorage.getItem('items_save'))
@@ -13,6 +13,15 @@ export default function Informations(props) {
             setArray(local_items)
         }
     }, [])
+
+    useEffect(()=>{
+        if (Array.length > 0) {
+            console.log('funcionando')
+            setVerificar(false)
+        }else{
+            setVerificar(true)
+        }
+    }, [Array])
 
     function verification(item) {
         item['verification'] = true
@@ -29,12 +38,14 @@ export default function Informations(props) {
                     setArray(new_array)
                     localStorage.setItem('items_save', JSON.stringify(new_array))
                 }
-                
+
                 if (Array.length > 0) {
+                    console.log('funcionando')
                     setVerificar(false)
                 }else{
                     setVerificar(true)
                 }
+                
                 let list = document.getElementsByClassName(item.id)[0]
                 list.classList.add('excluir')
             }
