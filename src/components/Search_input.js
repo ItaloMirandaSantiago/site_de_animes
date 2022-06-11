@@ -14,6 +14,7 @@ const SearchInput = ({text, onchange}) => {
     return (
         <input className='search'
         type='search'
+        placeholder='Pesquisar'
         value={display_value} 
         onChange={handleChange}
         />

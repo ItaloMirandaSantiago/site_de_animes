@@ -5,6 +5,7 @@ export default function Informations(props) {
     const [Array, setArray] = useState([])
     const img_fechar = 'https://cdn-icons-png.flaticon.com/512/106/106830.png'
     const [Description, setDescription] = useState({})
+    const [verificar, setVerificar] = useState(false)
 
     useEffect(()=>{
         let local_items = JSON.parse(localStorage.getItem('items_save'))
@@ -28,6 +29,12 @@ export default function Informations(props) {
                     setArray(new_array)
                     localStorage.setItem('items_save', JSON.stringify(new_array))
                 }
+                
+                if (Array.length > 0) {
+                    setVerificar(false)
+                }else{
+                    setVerificar(true)
+                }
                 let list = document.getElementsByClassName(item.id)[0]
                 list.classList.add('excluir')
             }
@@ -39,7 +46,7 @@ export default function Informations(props) {
             
             <div>
 
-            {Array.length > 0 && Array != null && !Description.verification && (
+            { Array != null && !Description.verification && (
                 <div>
                         <h2 className="h2_margin">Animes salvos...</h2>
                         <ul className="animes-list">
@@ -66,8 +73,10 @@ export default function Informations(props) {
                                 )
                             ))}
                         </ul>
-                        {Array.length > 0 && (
-                            <div><h2>Funcionando</h2></div>
+                        { verificar && (
+                            <div className="saves">
+                                Seus animes salvos aparecerão aqui quando salvá-los
+                            </div>
                         )}
                 </div>
                 )}

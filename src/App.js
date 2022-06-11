@@ -29,7 +29,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Animes</h1>
+      <h1 className='titulo_principal'>Comenta Animes</h1>
         <SearchInput text={text} onchange={(search)=>setText(search)}/>
       {text && !info.data && (
         <div className='loading_img'>
@@ -38,7 +38,7 @@ function App() {
       )}
 
       {!text && (
-        <div>
+        <div className='infor'>
           <Infomations description_item={(obj)=>set_description_obj(obj)}/>
           <BestAnimes />
         </div>

@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 
 export default function BestAnimes() {
     const [animes, setAnimes] = useState([])
-    const [Verification_, SetVerification_] = useState(false)
+//    const [Verification_, SetVerification_] = useState(false)
 
     function verification(item) {
         item['verification'] = true
-        SetVerification_(true)
+    //    SetVerification_(true)
     }
 
     useEffect(()=>{
@@ -20,7 +20,7 @@ export default function BestAnimes() {
     return(
         <div className="informations">
             <h2>Animes mais vistos</h2>
-            {animes.data && !Verification_ && (
+            {animes.data &&(
                 <ul className='animes-list'>
 
                     {animes.data.map((item)=>(
