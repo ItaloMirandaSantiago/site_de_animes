@@ -92,6 +92,10 @@ body{
 .infor{
   background-color: rgb(51, 45, 45);
   margin-top: 10px;
+  width: 100%;
+  height: 100%;
+//  display: flex;
+//  flex-direction: column;
 }
 
 .informations{
@@ -142,6 +146,7 @@ body{
 
 .text-aling{
   text-align: center;
+  background-color: rgb(51, 45, 45);
 }
 
 .h2_margin{
@@ -162,6 +167,9 @@ margin-bottom: 0;
 
 //informations
 //bestanimes
+.ocupar{
+  height: 100vh; /* Note a medida */
+}
 .img_comprimida{
   width: 150px;
   max-width: 150px;

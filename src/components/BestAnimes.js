@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
+import InforDescription from "./inforDescription";
 
 export default function BestAnimes() {
     const [animes, setAnimes] = useState([])
-//    const [Verification_, SetVerification_] = useState(false)
+    const [Description, SetDescription] = useState([])
 
     function verification(item) {
         item['verification'] = true
-    //    SetVerification_(true)
+        SetDescription(item)
     }
-
     useEffect(()=>{
             fetch('https://kitsu.io/api/edge/anime?page[limit]=5')
             .then((res)=>res.json())
@@ -19,8 +19,9 @@ export default function BestAnimes() {
 
     return(
         <div className="informations">
+            <div className="ocupar">
             <h2>Animes mais vistos</h2>
-            {animes.data &&(
+            {animes.data && !Description.verification &&(
                 <ul className='animes-list'>
 
                     {animes.data.map((item)=>(
@@ -36,7 +37,11 @@ export default function BestAnimes() {
                     ))}
                 </ul>
             )}
-
+            
+                {Description.verification && (
+                    <InforDescription Description={Description} setDescription={(e)=>SetDescription(e)}/>
+                )}
+            </div>
         </div>
     )
 }
