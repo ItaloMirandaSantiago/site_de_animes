@@ -21,6 +21,12 @@ export default function BestAnimes() {
         <div className="informations">
             <div className="ocupar">
             <h2>Animes mais vistos</h2>
+        {!animes.data && (
+            <div className='loading_img'>
+                <img src='http://portal.ufvjm.edu.br/a-universidade/cursos/grade_curricular_ckan/loading.gif/@@images/image.gif' alt='carregando...'></img>
+            </div>  
+        )}
+
             {animes.data && !Description.verification &&(
                 <ul className='animes-list'>
 

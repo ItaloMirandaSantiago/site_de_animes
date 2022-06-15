@@ -5,6 +5,7 @@ import Results from './components/Results'
 import Description from './components/Description'
 import Infomations from './components/Informations'
 import BestAnimes from './components/BestAnimes'
+import Pagination from './components/Pagination'
 
 const api = 'https://kitsu.io/api/edge/'
 
@@ -13,12 +14,13 @@ function App() {
   const [info, setInfo] = useState({})
   const [description_obj, set_description_obj] = useState({})
   const [items, set_items] = useState([])
+  const limit = 10 
 
   useEffect(()=>{
     if (text) {
       set_description_obj({})
       setInfo({})
-        fetch(`${api}anime?filter[text]=${text}&page[limit]=12&page[offset]=0`)
+        fetch(`${api}anime?filter[text]=${text}&page[limit]=${limit}&page[offset]=0`)
         .then((res)=>res.json())
         .then((res)=>{
           setInfo(res)
@@ -45,7 +47,10 @@ function App() {
       )}
 
       {info.data && !description_obj.verification && text && (
-        <Results info={info} description_item={(obj)=>set_description_obj(obj)} />
+        <div>
+          <Results info={info} description_item={(obj)=>set_description_obj(obj)} />
+          <Pagination limit={limit} total={120} offset={20}/>
+        </div>
       )}
 
       {info.data && description_obj.verification && text &&(
