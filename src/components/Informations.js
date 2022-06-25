@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import InforDescription from "./inforDescription";
-
+//aba de inicio aqui é onde os animes salvos aparecem 
 export default function Informations(props) {
     const [Array, setArray] = useState([])
     const img_fechar = 'https://cdn-icons-png.flaticon.com/512/106/106830.png'

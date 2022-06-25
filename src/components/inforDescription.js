@@ -1,5 +1,5 @@
 import React from "react";
-
+//mais informações sobre o anime salvos
 export default function InforDescription(props) {
     const array = props.Description.attributes
 

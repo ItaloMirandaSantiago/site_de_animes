@@ -6,6 +6,8 @@ import Description from './components/Description'
 import Infomations from './components/Informations'
 import BestAnimes from './components/BestAnimes'
 import Pagination from './components/Pagination'
+// dependencia
+import qs from 'qs'
 
 const api = 'https://kitsu.io/api/edge/'
 
@@ -14,20 +16,34 @@ function App() {
   const [info, setInfo] = useState({})
   const [description_obj, set_description_obj] = useState({})
   const [items, set_items] = useState([])
+  const [offset, setOffset] = useState(0 )
   const limit = 10 
 
   useEffect(()=>{
-    if (text) {
+ 
       set_description_obj({})
-      setInfo({})
-        fetch(`${api}anime?filter[text]=${text}&page[limit]=${limit}&page[offset]=0`)
+ //     setInfo({})
+      const query  = {
+        page: {
+          limit: limit,
+          offset
+        }
+      }
+
+      if (text) {
+        query.filter = {
+          text
+        }
+      }
+
+        fetch(`${api}anime?${qs.stringify(query)}`)
         .then((res)=>res.json())
         .then((res)=>{
           setInfo(res)
           console.log(res)
         })
-    }
-  }, [text])
+    
+  }, [text, offset])
 
   return (
     <div className="App">
@@ -49,7 +65,7 @@ function App() {
       {info.data && !description_obj.verification && text && (
         <div>
           <Results info={info} description_item={(obj)=>set_description_obj(obj)} />
-          <Pagination limit={limit} total={120} offset={20}/>
+          <Pagination limit={limit} total={info.meta.count} offset={offset} setOffset={setOffset}/>
         </div>
       )}
 
@@ -61,3 +77,14 @@ function App() {
 }
 
 export default App;
+
+//if (text) {
+ // set_description_obj({})
+ // setInfo({})
+//    fetch(`${api}anime?filter[text]=${text}&page[limit]=${limit}&page[offset]=0`)
+    //.then((res)=>res.json())
+  //  .then((res)=>{
+//      setInfo(res)
+    //  console.log(res)
+  //  })
+//}

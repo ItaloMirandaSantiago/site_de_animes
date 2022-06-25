@@ -1,5 +1,5 @@
 import  React, { useEffect, useState } from 'react'
-
+//mais informações sobre o anime clicado
 export default function Description(props) {
     const [items, set_items] = useState([])
     const description = props.description_obj.attributes
