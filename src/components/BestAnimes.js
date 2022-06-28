@@ -11,7 +11,7 @@ export default function BestAnimes() {
         SetDescription(item)
     }
     useEffect(()=>{
-            fetch('https://kitsu.io/api/edge/anime?page[limit]=5')
+            fetch('https://kitsu.io/api/edge/anime?page[limit]=15')
             .then((res)=>res.json())
             .then((res)=>{
                 setAnimes(res)
@@ -52,4 +52,4 @@ export default function BestAnimes() {
         </div>
     )
 }
-  //              <InforDescription Description={Description} setDescription={()=>SetVerification_(true)}/>
+  

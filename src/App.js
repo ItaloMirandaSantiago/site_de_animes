@@ -47,7 +47,14 @@ function App() {
 
   return (
     <div className="App">
+
+
+    <div>
       <h1 className='titulo_principal'>Comenta Animes</h1>
+    </div>
+
+
+
         <SearchInput text={text} onchange={(search)=>setText(search)}/>
       {text && !info.data && (
         <div className='loading_img'>
@@ -77,14 +84,3 @@ function App() {
 }
 
 export default App;
-
-//if (text) {
- // set_description_obj({})
- // setInfo({})
-//    fetch(`${api}anime?filter[text]=${text}&page[limit]=${limit}&page[offset]=0`)
-    //.then((res)=>res.json())
-  //  .then((res)=>{
-//      setInfo(res)
-    //  console.log(res)
-  //  })
-//}

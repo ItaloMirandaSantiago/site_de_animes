@@ -61,5 +61,3 @@ export default function Description(props) {
         </div>
     )
 }
-
-//"https://kitsu.io/api/edge/episodes/4692/videos?page%5Blimit%5D=10&page%5Boffset%5D=0"
