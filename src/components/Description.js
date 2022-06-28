@@ -48,8 +48,8 @@ export default function Description(props) {
 
                     <p>Rank de popularidade: {description.popularityRank}</p>
 
-                    <div>
-                        <button onClick={save}>Salvar</button>
+                    <div className="button_descri_end_info">
+                        <button className="button_" onClick={save}>Salvar</button>
                     </div>
                 </div>
             </div>

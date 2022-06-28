@@ -25,8 +25,8 @@ export default function InforDescription(props) {
 
                             <p>Rank de popularidade: {array.popularityRank}</p>
 
-                            <div>
-                                <button onClick={()=>{voltar()}}>Voltar</button>
+                            <div className="button_descri_end_info">
+                                <button className="button_" onClick={()=>{voltar()}}>Voltar</button>
                             </div>
 
                         </div>
