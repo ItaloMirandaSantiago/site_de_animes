@@ -56,7 +56,9 @@ export default function Description(props) {
                 <div className='description_text'>
                 <p>Descrição: {description.description}</p>
                 </div>
-                <iframe width="560" height="315" src={`https://www.youtube.com/embed/${description.youtubeVideoId}`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                <div className='video_d'>
+                    <iframe className='video_d' src={`https://www.youtube.com/embed/${description.youtubeVideoId}`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                </div>
 
         </div>
     )

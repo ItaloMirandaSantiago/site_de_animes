@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import './App.scss'
+import './style.sass/App.scss'
 import SearchInput from './components/Search_input'
 import Results from './components/Results'
 import Description from './components/Description'

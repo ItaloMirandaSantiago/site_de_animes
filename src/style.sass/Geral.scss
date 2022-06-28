@@ -1,0 +1,44 @@
+$text-color: black;
+
+.App {
+  text-align: center;
+}
+
+body{
+  background-color: $text-color;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.titulo_principal{
+  font-family: cursive;
+  color: cadetblue;
+}
+
+.animes-list{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  justify-items: center;
+  list-style: none;
+  grid-gap: 1.5rem;
+  margin: 0;
+  background-color: rgb(51, 45, 45);
+
+    button{
+      cursor: pointer;
+    }
+
+    img{
+      max-width: 100%;
+    }
+
+    p{
+      display: block;
+    }
+}
+
+.video_d{
+    position: relative;
+    width: 400px;
+    height: 338px;
+}

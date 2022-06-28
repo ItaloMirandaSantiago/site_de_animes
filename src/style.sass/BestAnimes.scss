@@ -1,0 +1,16 @@
+.ocupar{
+    height: 100vh; /* Note a medida */
+  
+    h2{
+      margin-bottom: 8px;
+      margin-top: 5px;
+    }
+  }
+  .img_comprimida{
+    width: 150px;
+    max-width: 150px;
+    height: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }

@@ -1,0 +1,37 @@
+// search
+@import url(./Search.scss);
+// search e loading img
+
+//pagination
+@import url(./Pagination.scss);
+//pagination
+
+//description
+@import url(./Description.scss);
+//description
+
+//informations
+@import url(./Informations.scss);
+//informations
+
+//BestAnimes
+@import url(./BestAnimes.scss);
+//BestAnimes
+
+//Geral
+@import url(./Geral.scss);
+//Geral - caso não ache o que style de alguma tag do componente, estará aqui
+//video do description
+
+
+@media (max-width: 630px) {
+  //description e infor_description
+
+  .info_{
+    display: block;
+  }
+
+
+
+  //description
+}

@@ -1,0 +1,29 @@
+.search{
+    margin-bottom: 8px;
+    padding: 5px;
+    margin: 8px;
+    border: none;
+    box-sizing: border-box;
+    outline: 0;
+    border: none;
+    text-decoration: none;
+    
+    .search:hover{
+        border: none;
+    }
+}
+
+  // loading
+
+.loading_img{
+    display: block;
+    text-align: center;
+    margin-top: 10px ;
+  
+      img{
+        width: 90px;
+        height: 90px;
+      }
+  }
+  
+  // loading
