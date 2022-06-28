@@ -24,14 +24,21 @@
 //video do description
 
 
+
+
+
 @media (max-width: 630px) {
-  //description e infor_description
+  .video_d{
+    height: 280px;
+  }
 
   .info_{
     display: block;
   }
 
-
-
-  //description
+  @media (max-width: 480px) {
+    .anime-list{
+      grid-template-columns: repeat(auto-fit,minmax(140px,1fr));
+    }
+  }
 }
