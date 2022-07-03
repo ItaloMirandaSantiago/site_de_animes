@@ -8,6 +8,7 @@ import BestAnimes from './components/BestAnimes'
 import Pagination from './components/Pagination'
 // dependencia
 import qs from 'qs'
+import BarraNav from './components/BarraNav'
 
 const api = 'https://kitsu.io/api/edge/'
 
@@ -17,7 +18,7 @@ function App() {
   const [description_obj, set_description_obj] = useState({})
   const [items, set_items] = useState([])
   const [offset, setOffset] = useState(0 )
-  const limit = 10 
+  const limit = 10
 
   useEffect(()=>{
  
@@ -54,7 +55,7 @@ function App() {
     </div>
 
 
-
+        <BarraNav />
         <SearchInput text={text} onchange={(search)=>setText(search)}/>
       {text && !info.data && (
         <div className='loading_img'>
