@@ -2,6 +2,8 @@ import React from "react";
 
 export default function BarraNav() {
 
+    fetch("https://kitsu.io/api/edge/anime?filter[categories]=adventure").then((res)=>res.json()).then(res=> console.log(res))
+
     const NavList = document.querySelector(".mobile-menu")
     const ul = document.querySelector('.nav-list')
     const NavLinks = document.querySelectorAll('.nav-list li')
@@ -35,11 +37,11 @@ export default function BarraNav() {
             </div>
             <ul className="nav-list">
             <a className="logo" href="/">Categorias</a>
-                <li> <a href="/">teste</a></li>
-                <li> <a href="/">teste</a></li>
-                <li> <a href="/">teste</a></li>
-                <li> <a href="/">teste</a></li>
-                <li> <a href="/">teste</a></li>
+                <li> <a className="button_bar" href="/">Aventura</a></li>
+                <li> <a className="button_bar item1" href="/">Aventura</a></li>
+                <li> <a className="button_bar item1" href="/">Aventura</a></li>
+                <li> <a className="button_bar item1" href="/">Aventura</a></li>
+                <li> <a className="button_bar item1" href="/">Aventura</a></li>
             </ul>
 
             <main></main>
