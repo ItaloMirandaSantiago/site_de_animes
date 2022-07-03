@@ -2,19 +2,26 @@ import React from "react";
 
 export default function BarraNav() {
 
+    const NavList = document.querySelector(".mobile-menu")
+    const ul = document.querySelector('.nav-list')
+    const NavLinks = document.querySelectorAll('.nav-list li')
+
+
     function Move_menu(){
-        let NavList = document.querySelector(".mobile-menu")
-        let ul = document.querySelector('.nav-list')
-        let NavLinks = document.querySelectorAll('.nav-list li')
 
-
-
-        if (ul.classList == "nav-list active") {
+        if (`${ul.classList}` === "nav-list active") {
+            NavList.classList.remove("ok")
             ul.classList.remove("active")
         }else{
+            NavList.classList.add("ok")
             ul.classList.add("active")
-            ul.classList.forEach((res => {}))
         }
+
+        NavLinks.forEach(((item, index) => {
+            item.style.animation ? (item.style.animation = "")
+            : 
+            (item.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`)
+        }))
     }
 
 
