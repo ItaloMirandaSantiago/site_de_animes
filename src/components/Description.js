@@ -4,6 +4,10 @@ export default function Description(props) {
     const [items, set_items] = useState([])
     const description = props.description_obj.attributes
 
+    function voltar() {
+        props.set_description_obj(false)
+    }
+
     useEffect(()=>{
         let valor_localStorage = localStorage.getItem('items_save')
         if(valor_localStorage != null){
@@ -19,7 +23,6 @@ export default function Description(props) {
     function save() {
         let verificar = true
         for (let i = 0; i < items.length; i++) {
-//            verificar = true
             if(props.description_obj.id === items[i].id) {
                 alert('Este anime já esta adicionado na sua lista de salvos')
                 verificar = false
@@ -49,7 +52,8 @@ export default function Description(props) {
                     <p>Rank de popularidade: {description.popularityRank}</p>
 
                     <div className="button_descri_end_info">
-                        <button className="button_" onClick={save}>Salvar</button>
+                        <button className="button_" onClick={()=>{voltar()}}>Voltar</button>
+                        <button className="button_" onClick={()=>{save()}}>Salvar</button>
                     </div>
                 </div>
             </div>

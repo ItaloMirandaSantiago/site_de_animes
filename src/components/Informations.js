@@ -7,12 +7,14 @@ export default function Informations(props) {
     const [Description, setDescription] = useState([])
     const [verificar, setVerificar] = useState(true)
 
+
     useEffect(()=>{
         let local_items = JSON.parse(localStorage.getItem('items_save'))
+        console.log("rodando")
         if (local_items !== null) {
             setArray(local_items)
         }
-    }, [])
+    },[props.SaveVerification])
 
     useEffect(()=>{
         if (Array.length > 0) {

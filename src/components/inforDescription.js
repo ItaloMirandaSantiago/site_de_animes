@@ -1,11 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 //mais informações sobre o anime salvos
 export default function InforDescription(props) {
     const array = props.Description.attributes
+    const [items, set_items] = useState([])
 
     function voltar() {
         props.setDescription(false)
     }
+
+    useEffect(()=>{
+        if (items.length ) {
+            localStorage.setItem('items_save', JSON.stringify(items));
+            props.SetSaveVerification(Math.random())
+        }
+    }, [items])
+
+    useEffect(()=>{
+        let valor_localStorage = localStorage.getItem('items_save')
+        if(valor_localStorage != null){
+            set_items(JSON.parse(valor_localStorage))
+        }}, [])
+
+    function save() {
+        let verificar = true
+        for (let i = 0; i < items.length; i++) {
+//            verificar = true
+            if(props.Description.id === items[i].id) {
+                alert('Este anime já esta adicionado na sua lista de salvos')
+                verificar = false
+            }
+        }
+            if (verificar) {
+                set_items((e)=>[...e, props.Description])
+            }
+    }
+
     return(
         <div>
                     <div className="text-aling">
@@ -27,7 +56,7 @@ export default function InforDescription(props) {
 
                             <div className="button_descri_end_info">
                                 <button className="button_" onClick={()=>{voltar()}}>Voltar</button>
-                                <button className="button_" onClick={()=>{voltar()}}>Salvar</button>
+                                <button className="button_" onClick={()=>{save()}}>Salvar</button>
                             </div>
 
                         </div>
