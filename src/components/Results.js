@@ -6,6 +6,7 @@ export default  function Description(props) {
     const info = props.info
 
     function verification(item) {
+        console.log('rodando')
         item['verification'] = true
 
         props.description_item(item)

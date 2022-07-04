@@ -20,7 +20,7 @@ $color_menu: #23232e;
     height: 8vh;
 }
 
-a{
+button{
     color: goldenrod;
     text-decoration: none;
     transition: 0.3;
@@ -124,6 +124,9 @@ main{
             border: 0.5px solid rgb(97, 26, 163);
             line-height: 28px;
             font-weight: 300;
+            width: 124px;
+            text-decoration: none;
+            background-color: transparent;
         }
 
     }

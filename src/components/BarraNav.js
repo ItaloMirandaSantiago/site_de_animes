@@ -1,13 +1,21 @@
-import React from "react";
+import React, { } from "react";
 
-export default function BarraNav() {
+export default function BarraNav(props) {
 
-    fetch("https://kitsu.io/api/edge/anime?filter[categories]=adventure").then((res)=>res.json()).then(res=> console.log(res))
 
     const NavList = document.querySelector(".mobile-menu")
     const ul = document.querySelector('.nav-list')
     const NavLinks = document.querySelectorAll('.nav-list li')
+    const api = "https://kitsu.io/api/edge/anime?filter[categories]"
 
+    function selection(event) {
+        console.log(event)
+        fetch(`${api}=${event}`)
+        .then((res)=>res.json())
+        .then(res=> { props.setInfo(res)  
+        })
+        props.SetBarrNavVerification(true) 
+    }
 
     function Move_menu(){
 
@@ -37,11 +45,12 @@ export default function BarraNav() {
             </div>
             <ul className="nav-list">
             <a className="logo" href="/">Categorias</a>
-                <li> <a className="button_bar" href="/">Aventura</a></li>
-                <li> <a className="button_bar item1" href="/">Aventura</a></li>
-                <li> <a className="button_bar item1" href="/">Aventura</a></li>
-                <li> <a className="button_bar item1" href="/">Aventura</a></li>
-                <li> <a className="button_bar item1" href="/">Aventura</a></li>
+                <li> <button className="button_bar" onClick={()=>selection("adventure")}>Aventura</button></li>
+                <li> <button className="button_bar" onClick={()=>selection("comedy")}>Comédia</button></li>
+                <li> <button className="button_bar" onClick={()=>selection("romance")}>Romance</button></li>
+                <li> <button className="button_bar" onClick={()=>selection("Thriller")}>Suspense</button></li>
+                <li> <button className="button_bar" onClick={()=>selection("fantasy")}>Fantasia</button></li>
+                <li> <button className="button_bar" onClick={()=>selection("Isekai")}>Isekai</button></li>
             </ul>
 
             <main></main>

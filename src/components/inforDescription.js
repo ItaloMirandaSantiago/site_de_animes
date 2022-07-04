@@ -27,6 +27,7 @@ export default function InforDescription(props) {
 
                             <div className="button_descri_end_info">
                                 <button className="button_" onClick={()=>{voltar()}}>Voltar</button>
+                                <button className="button_" onClick={()=>{voltar()}}>Salvar</button>
                             </div>
 
                         </div>

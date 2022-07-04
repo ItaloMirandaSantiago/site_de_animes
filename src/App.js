@@ -9,6 +9,7 @@ import Pagination from './components/Pagination'
 // dependencia
 import qs from 'qs'
 import BarraNav from './components/BarraNav'
+import InforDescription from './components/inforDescription'
 
 const api = 'https://kitsu.io/api/edge/'
 
@@ -17,8 +18,13 @@ function App() {
   const [info, setInfo] = useState({})
   const [description_obj, set_description_obj] = useState({})
   const [items, set_items] = useState([])
-  const [offset, setOffset] = useState(0 )
+  const [offset, setOffset] = useState(0)
+  const [BarrNavVerification, SetBarrNavVerification] = useState(false)
   const limit = 10
+
+  useEffect(()=>{
+    console.log(info)
+  }, [info])
 
   useEffect(()=>{
  
@@ -43,6 +49,8 @@ function App() {
           setInfo(res)
           console.log(res)
         })
+
+
     
   }, [text, offset])
 
@@ -55,7 +63,7 @@ function App() {
     </div>
 
 
-        <BarraNav />
+        <BarraNav setInfo={(set)=>setInfo(set)} SetBarrNavVerification={(verification)=>SetBarrNavVerification(verification)}/>
         <SearchInput text={text} onchange={(search)=>setText(search)}/>
       {text && !info.data && (
         <div className='loading_img'>
@@ -63,10 +71,24 @@ function App() {
         </div>
       )}
 
-      {!text && (
+      {!text && !BarrNavVerification && (
         <div className='infor'>
           <Infomations description_item={(obj)=>set_description_obj(obj)}/>
           <BestAnimes />
+        </div>
+      )}
+
+      {BarrNavVerification && !description_obj.verification && !text && (
+        <Results info={info} description_item={(obj)=>set_description_obj(obj)}/>
+        //ativado quando apertado alguma opção do menu
+      )}
+      {description_obj.verification && BarrNavVerification && !text && (
+        <InforDescription Description={description_obj} setDescription={(e)=>set_description_obj(e)}/>
+      )}
+  
+      {BarrNavVerification && !info.data && (
+        <div className='loading_img'>
+        <img src='http://portal.ufvjm.edu.br/a-universidade/cursos/grade_curricular_ckan/loading.gif/@@images/image.gif' alt='carregando...'></img>
         </div>
       )}
 
