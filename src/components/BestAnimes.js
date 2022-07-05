@@ -9,8 +9,7 @@ export default function BestAnimes(props) {
     function verification(item) {
         item['verification'] = true
         SetDescription(item)
-        //ser
-        props.setDescription(true)
+        //ser         props.setDescription(true)
     }
     useEffect(()=>{
             fetch('https://kitsu.io/api/edge/anime?page[limit]=15')
@@ -40,7 +39,6 @@ export default function BestAnimes(props) {
                                     alt={item.attributes.canonicalTitle}
                                     />
                                     <p>{item.attributes.canonicalTitle}</p>
-
                                 </button>
                             </li>
                     ))}
@@ -48,7 +46,7 @@ export default function BestAnimes(props) {
             )}
             
                 {Description.verification && (
-                    <InforDescription SetSaveVerification={props.SetSaveVerification} Description={Description} setDescription={(e)=>SetDescription(e)}/>
+                    <InforDescription Description={Description} setDescription={(e)=>SetDescription(e)} name={"Voltar"}/>
                 )}
             </div>
         </div>

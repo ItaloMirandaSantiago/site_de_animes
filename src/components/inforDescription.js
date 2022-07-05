@@ -4,6 +4,9 @@ export default function InforDescription(props) {
     const array = props.Description.attributes
     const [items, set_items] = useState([])
 
+
+
+
     function voltar() {
         props.setDescription(false)
     }
@@ -11,7 +14,6 @@ export default function InforDescription(props) {
     useEffect(()=>{
         if (items.length ) {
             localStorage.setItem('items_save', JSON.stringify(items));
-            props.SetSaveVerification(Math.random())
         }
     }, [items])
 
@@ -24,7 +26,6 @@ export default function InforDescription(props) {
     function save() {
         let verificar = true
         for (let i = 0; i < items.length; i++) {
-//            verificar = true
             if(props.Description.id === items[i].id) {
                 alert('Este anime já esta adicionado na sua lista de salvos')
                 verificar = false
@@ -35,6 +36,14 @@ export default function InforDescription(props) {
             }
     }
 
+    function options() {
+        if (props.excluir) {
+            props.excluir(props.Description)
+        }else{
+            voltar()
+        }
+    }
+//props.excluir(props.Description)
     return(
         <div>
                     <div className="text-aling">
@@ -55,7 +64,7 @@ export default function InforDescription(props) {
                             <p>Rank de popularidade: {array.popularityRank}</p>
 
                             <div className="button_descri_end_info">
-                                <button className="button_" onClick={()=>{voltar()}}>Voltar</button>
+                                <button className="button_" onClick={options}>{props.name}</button>
                                 <button className="button_" onClick={()=>{save()}}>Salvar</button>
                             </div>
 
@@ -73,3 +82,5 @@ export default function InforDescription(props) {
 
     )
 }
+
+//props.excluir(props.Description)

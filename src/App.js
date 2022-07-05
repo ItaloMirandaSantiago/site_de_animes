@@ -21,7 +21,6 @@ function App() {
   const [offset, setOffset] = useState(0)
   const [BarrNavVerification, SetBarrNavVerification] = useState(false)
   const limit = 10
-  const [SaveVerification, SetSaveVerification] = useState()
 
   useEffect(()=>{
  
@@ -70,8 +69,8 @@ function App() {
 
       {!text && !BarrNavVerification && (
         <div className='infor'>
-          <Infomations description_item={(obj)=>set_description_obj(obj)} SaveVerification={SaveVerification}/>
-          <BestAnimes SetSaveVerification={(i)=>SetSaveVerification(i)}/>
+          <Infomations description_item={(obj)=>set_description_obj(obj)}/>
+          <BestAnimes />
         </div>
       )}
 

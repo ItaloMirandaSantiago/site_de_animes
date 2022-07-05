@@ -3,22 +3,19 @@ import InforDescription from "./inforDescription";
 //aba de inicio aqui é onde os animes salvos aparecem 
 export default function Informations(props) {
     const [Array, setArray] = useState([])
-    const img_fechar = 'https://cdn-icons-png.flaticon.com/512/106/106830.png'
     const [Description, setDescription] = useState([])
     const [verificar, setVerificar] = useState(true)
 
-
     useEffect(()=>{
         let local_items = JSON.parse(localStorage.getItem('items_save'))
-        console.log("rodando")
         if (local_items !== null) {
             setArray(local_items)
         }
-    },[props.SaveVerification])
+    }, [])
 
     useEffect(()=>{
         if (Array.length > 0) {
-            console.log('funcionando')
+ //           console.log('funcionando')
             setVerificar(false)
         }else{
             setVerificar(true)
@@ -65,24 +62,15 @@ export default function Informations(props) {
                         <ul className="animes-list">
                             {Array.map((item)=>(
                                 item.id && (
-                                <li key={item.id} className={item.id}>
-                                    {console.log(item)}
-                                    <div className="fundo">
-                                        <div className="container_img">
-                                            <button onClick={()=>verification(item)}>
-                                                <img src={item.attributes.posterImage.tiny} 
-                                                alt={item.attributes.canonicalTitle} 
-                                                />
-                                            </button>
-                                            <div>
-                                                <button onClick={()=>excluir(item)}>
-                                                    <img src={img_fechar} className='img' width='25px' alt='excluir anime dos favoritos'></img>
-                                                </button>
-                                            </div>
-                                        </div>
+                                    <li key={item.id} className={item.id}>
+                                    <button className="img_comprimida" onClick={()=>verification(item)}>
+                                        <img src={item.attributes.posterImage.tiny} 
+                                        alt={item.attributes.canonicalTitle}
+                                        />
                                         <p>{item.attributes.canonicalTitle}</p>
-                                    </div>
-                                </li>
+    
+                                        </button>
+                                    </li>
                                 )
                             ))}
                         </ul>
@@ -94,7 +82,7 @@ export default function Informations(props) {
                 </div>
                 )}
                 {Description.verification && (
-                   <InforDescription Description={Description} setDescription={(e)=>setDescription(e)}/>
+                    <InforDescription Description={Description} setDescription={(e)=>setDescription(e)} excluir={(i)=>excluir(i)} name={"Excluir"}/>
                 )}
             
 
@@ -102,4 +90,7 @@ export default function Informations(props) {
         </div>
     )
 }
+
+
+
 
