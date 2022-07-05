@@ -69,8 +69,8 @@ function App() {
 
       {!text && !BarrNavVerification && (
         <div className='infor'>
-              <Infomations description_item={(obj)=>set_description_obj(obj)}/>
-              <BestAnimes />
+              <Infomations set_items={set_items}  items={items} description_item={(obj)=>set_description_obj(obj)}/>
+              <BestAnimes set_items={set_items}  items={items}/>
         </div>
       )}
 

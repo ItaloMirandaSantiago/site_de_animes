@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 //mais informações sobre o anime salvos
 export default function InforDescription(props) {
     const array = props.Description.attributes
-    const [items, set_items] = useState([])
+    const {items, set_items} = props
 
     function voltar() {
         props.setDescription(false)
@@ -18,7 +18,9 @@ export default function InforDescription(props) {
         let valor_localStorage = localStorage.getItem('items_save')
         if(valor_localStorage != null){
             set_items(JSON.parse(valor_localStorage))
-        }}, [])
+        }
+          // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     function save() {
         let verificar = true
@@ -37,6 +39,7 @@ export default function InforDescription(props) {
     function options() {
         if (props.excluir) {
             props.excluir(props.Description)
+            voltar()
         }else{
             voltar()
         }

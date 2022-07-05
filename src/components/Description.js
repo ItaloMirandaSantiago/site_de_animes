@@ -1,7 +1,7 @@
-import  React, { useEffect, useState } from 'react'
+import  React, { useEffect } from 'react'
 //mais informações sobre o anime clicado
 export default function Description(props) {
-    const [items, set_items] = useState([])
+    const {items, set_items} = props
     const description = props.description_obj.attributes
 
     function voltar() {
@@ -30,6 +30,7 @@ export default function Description(props) {
         }
             if (verificar) {
                 set_items((e)=>[...e, props.description_obj])
+                document.querySelector(".button_save").style = "background-color: aliceblue; color: black;"
             }
     }
 

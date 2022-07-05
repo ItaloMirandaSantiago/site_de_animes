@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import InforDescription from "./inforDescription";
 //aba de inicio sobre melhores animes
 
-export default function BestAnimes() {
+export default function BestAnimes(props) {
+    const {items, set_items} = props
+
     const [animes, setAnimes] = useState([])
     const [Description, SetDescription] = useState([])
 
@@ -46,7 +48,7 @@ export default function BestAnimes() {
             )}
             
                 {Description.verification && (
-                    <InforDescription Description={Description} setDescription={(e)=>SetDescription(e)} name={"Voltar"}/>
+                    <InforDescription set_items={set_items}  items={items} Description={Description} setDescription={(e)=>SetDescription(e)} name={"Voltar"}/>
                 )}
             </div>
         </div>

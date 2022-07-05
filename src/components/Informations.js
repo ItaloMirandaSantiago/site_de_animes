@@ -2,25 +2,25 @@ import React, { useEffect, useState } from "react";
 import InforDescription from "./inforDescription";
 //aba de inicio aqui é onde os animes salvos aparecem 
 export default function Informations(props) {
-    const [Array, setArray] = useState([])
+    const {items, set_items} = props
     const [Description, setDescription] = useState([])
     const [verificar, setVerificar] = useState(true)
 
     useEffect(()=>{
         let local_items = JSON.parse(localStorage.getItem('items_save'))
         if (local_items !== null) {
-            setArray(local_items)
+            set_items(local_items)
         }
     }, [])
 
     useEffect(()=>{
-        if (Array.length > 0) {
+        if (items.length > 0) {
  //           console.log('funcionando')
             setVerificar(false)
         }else{
             setVerificar(true)
         }
-    }, [Array])
+    }, [items])
 
     function verification(item) {
         item['verification'] = true
@@ -29,16 +29,16 @@ export default function Informations(props) {
     }
 
     function excluir(item) {
-            for (let i = 0; i < Array.length; i++) {
-                if (item.id === Array[i].id) {
-                    let new_array = Array
+            for (let i = 0; i < items.length; i++) {
+                if (item.id === items[i].id) {
+                    let new_array = items
                     new_array[i].verification = false
                     new_array.splice(i,1)
-                    setArray(new_array)
+                    set_items(new_array)
                     localStorage.setItem('items_save', JSON.stringify(new_array))
                 }
 
-                if (Array.length > 0) {
+                if (items.length > 0) {
                     console.log('funcionando')
                     setVerificar(false)
                 }else{
@@ -56,11 +56,11 @@ export default function Informations(props) {
             
             <div>
 
-            { Array != null && !Description.verification && (
+            { items != null && !Description.verification && (
                 <div>
                         <h2 className="h2_margin">Animes salvos...</h2>
                         <ul className="animes-list">
-                            {Array.map((item)=>(
+                            {items.map((item)=>(
                                 item.id && (
                                     <li key={item.id} className={item.id}>
                                     <button className="img_comprimida" onClick={()=>verification(item)}>
@@ -82,7 +82,7 @@ export default function Informations(props) {
                 </div>
                 )}
                 {Description.verification && (
-                    <InforDescription Description={Description} setDescription={(e)=>setDescription(e)} excluir={(i)=>excluir(i)} name={"Excluir"}/>
+                    <InforDescription set_items={set_items}  items={items} Description={Description} setDescription={(e)=>setDescription(e)} excluir={(i)=>excluir(i)} name={"Excluir"}/>
                 )}
             
 
