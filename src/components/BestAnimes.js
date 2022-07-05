@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import InforDescription from "./inforDescription";
 //aba de inicio sobre melhores animes
 
-export default function BestAnimes(props) {
+export default function BestAnimes() {
     const [animes, setAnimes] = useState([])
     const [Description, SetDescription] = useState([])
 

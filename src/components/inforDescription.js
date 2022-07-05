@@ -4,9 +4,6 @@ export default function InforDescription(props) {
     const array = props.Description.attributes
     const [items, set_items] = useState([])
 
-
-
-
     function voltar() {
         props.setDescription(false)
     }
@@ -33,6 +30,7 @@ export default function InforDescription(props) {
         }
             if (verificar) {
                 set_items((e)=>[...e, props.Description])
+                document.querySelector(".button_save").style = "background-color: aliceblue; color: black;"
             }
     }
 
@@ -65,7 +63,7 @@ export default function InforDescription(props) {
 
                             <div className="button_descri_end_info">
                                 <button className="button_" onClick={options}>{props.name}</button>
-                                <button className="button_" onClick={()=>{save()}}>Salvar</button>
+                                <button className="button_ button_save" onClick={()=>{save()}}>Salvar</button>
                             </div>
 
                         </div>

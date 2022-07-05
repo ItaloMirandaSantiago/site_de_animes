@@ -69,12 +69,10 @@ function App() {
 
       {!text && !BarrNavVerification && (
         <div className='infor'>
-          <Infomations description_item={(obj)=>set_description_obj(obj)}/>
-          <BestAnimes />
+              <Infomations description_item={(obj)=>set_description_obj(obj)}/>
+              <BestAnimes />
         </div>
       )}
-
-      
 
       {BarrNavVerification && !description_obj.verification && !text && (
         <Results info={info} description_item={(obj)=>set_description_obj(obj)}/>
