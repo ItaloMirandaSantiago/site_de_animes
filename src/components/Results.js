@@ -17,7 +17,6 @@ export default  function Description(props) {
             {info.data && (
                 <ul className='animes-list'>
                     {info.data.map((item)=>(
-
                         <li key={item.id} className={item.id}>
                             <button onClick={()=>verification(item)}>
                                 <img src={item.attributes.posterImage.small} 

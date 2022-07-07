@@ -43,7 +43,6 @@ function App() {
         .then((res)=>res.json())
         .then((res)=>{
           setInfo(res)
-          console.log(res)
         })
   }, [text, offset])
 

@@ -9,7 +9,6 @@ export default function InforDescription(props) {
     }
 
     useEffect(()=>{
-        console.log(items)
         if (items.length ) {
             localStorage.setItem('items_save', JSON.stringify(items));
         }
@@ -45,7 +44,6 @@ export default function InforDescription(props) {
             voltar()
         }
     }
-//props.excluir(props.Description)
     return(
         <div>
                     <div className="text-aling">

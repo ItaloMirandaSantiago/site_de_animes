@@ -11,6 +11,7 @@ export default function Informations(props) {
         if (local_items !== null) {
             set_items(local_items)
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     useEffect(()=>{
@@ -44,9 +45,6 @@ export default function Informations(props) {
                 }else{
                     setVerificar(true)
                 }
-                
-                let list = document.getElementsByClassName(item.id)[0]
-                list.classList.add('excluir')
             }
     }
 
@@ -68,7 +66,7 @@ export default function Informations(props) {
                                         alt={item.attributes.canonicalTitle}
                                         />
                                         <p>{item.attributes.canonicalTitle}</p>
-    
+                                        {console.log(item)}
                                         </button>
                                     </li>
                                 )

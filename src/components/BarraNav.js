@@ -15,7 +15,6 @@ export default function BarraNav(props) {
     }
 
     function selection(event) {
-        console.log(event)
         fetch(`${api}=${event}`)
         .then((res)=>res.json())
         .then(res=> {props.setInfo(res)
