@@ -8,6 +8,12 @@ export default function BarraNav(props) {
     const NavLinks = document.querySelectorAll('.nav-list li')
     const api = "https://kitsu.io/api/edge/anime?filter[categories]"
 
+    function back() {
+        props.SetBarrNavVerification(false)
+        Move_menu()
+        document.querySelector(".button_bar").classList.replace("button_bar", "none")
+    }
+
     function selection(event) {
         console.log(event)
         fetch(`${api}=${event}`)
@@ -15,6 +21,8 @@ export default function BarraNav(props) {
         .then(res=> {props.setInfo(res)
         })
         props.SetBarrNavVerification(true)
+        Move_menu()
+        document.querySelector(".none").classList.replace("none", "button_bar")
     }
 
     function Move_menu(){
@@ -45,6 +53,7 @@ export default function BarraNav(props) {
             </div>
             <ul className="nav-list">
             <a className="logo" href="/">Categorias</a>
+                <li> <button className="none" onClick={()=>{back()}}>Início</button></li>
                 <li> <button className="button_bar" onClick={()=>selection("adventure")}>Aventura</button></li>
                 <li> <button className="button_bar" onClick={()=>selection("comedy")}>Comédia</button></li>
                 <li> <button className="button_bar" onClick={()=>selection("romance")}>Romance</button></li>

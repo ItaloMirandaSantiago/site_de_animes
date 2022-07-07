@@ -26,9 +26,11 @@ function App() {
  
       set_description_obj({})
 
-      const query = {
-        limit: limit,
-        offset
+      const query  = {
+        page: {
+          limit: limit,
+          offset
+        }
       }
 
       if (text) {
@@ -77,7 +79,7 @@ function App() {
         <InforDescription set_items={set_items}  items={items} name={'Voltar'} Description={description_obj} setDescription={(e)=>set_description_obj(e)}/>
       )}
   
-      {!BarrNavVerification && !info.data && (
+      {BarrNavVerification && !info.data && (
         <div className='loading_img'>
         <img src='http://portal.ufvjm.edu.br/a-universidade/cursos/grade_curricular_ckan/loading.gif/@@images/image.gif' alt='carregando...'></img>
         </div>
