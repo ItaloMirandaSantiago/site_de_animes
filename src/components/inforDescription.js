@@ -9,6 +9,7 @@ export default function InforDescription(props) {
     }
 
     useEffect(()=>{
+        console.log(items)
         if (items.length ) {
             localStorage.setItem('items_save', JSON.stringify(items));
         }

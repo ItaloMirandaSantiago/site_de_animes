@@ -12,9 +12,9 @@ export default function BarraNav(props) {
         console.log(event)
         fetch(`${api}=${event}`)
         .then((res)=>res.json())
-        .then(res=> { props.setInfo(res)  
+        .then(res=> {props.setInfo(res)
         })
-        props.SetBarrNavVerification(true) 
+        props.SetBarrNavVerification(true)
     }
 
     function Move_menu(){
@@ -50,7 +50,6 @@ export default function BarraNav(props) {
                 <li> <button className="button_bar" onClick={()=>selection("romance")}>Romance</button></li>
                 <li> <button className="button_bar" onClick={()=>selection("Thriller")}>Suspense</button></li>
                 <li> <button className="button_bar" onClick={()=>selection("fantasy")}>Fantasia</button></li>
-                <li> <button className="button_bar" onClick={()=>selection("Isekai")}>Isekai</button></li>
             </ul>
 
             <main></main>

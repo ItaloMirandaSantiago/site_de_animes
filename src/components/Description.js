@@ -12,7 +12,9 @@ export default function Description(props) {
         let valor_localStorage = localStorage.getItem('items_save')
         if(valor_localStorage != null){
             set_items(JSON.parse(valor_localStorage))
-        }}, [])
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     useEffect(()=>{
         if (items.length) {
@@ -30,7 +32,7 @@ export default function Description(props) {
         }
             if (verificar) {
                 set_items((e)=>[...e, props.description_obj])
-                document.querySelector(".button_save").style = "background-color: aliceblue; color: black;"
+                document.querySelector(".save").style = "background-color: aliceblue; color: black;"
             }
     }
 
@@ -54,7 +56,7 @@ export default function Description(props) {
 
                     <div className="button_descri_end_info">
                         <button className="button_" onClick={()=>{voltar()}}>Voltar</button>
-                        <button className="button_" onClick={()=>{save()}}>Salvar</button>
+                        <button className="button_ save" onClick={()=>{save()}}>Salvar</button>
                     </div>
                 </div>
             </div>

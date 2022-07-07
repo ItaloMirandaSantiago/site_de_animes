@@ -6,10 +6,10 @@ import Description from './components/Description'
 import Infomations from './components/Informations'
 import BestAnimes from './components/BestAnimes'
 import Pagination from './components/Pagination'
-// dependencia
-import qs from 'qs'
 import BarraNav from './components/BarraNav'
 import InforDescription from './components/inforDescription'
+// dependencia
+import qs from 'qs'
 
 const api = 'https://kitsu.io/api/edge/'
 
@@ -25,12 +25,10 @@ function App() {
   useEffect(()=>{
  
       set_description_obj({})
- //     setInfo({})
-      const query  = {
-        page: {
-          limit: limit,
-          offset
-        }
+
+      const query = {
+        limit: limit,
+        offset
       }
 
       if (text) {
@@ -45,9 +43,6 @@ function App() {
           setInfo(res)
           console.log(res)
         })
-
-
-    
   }, [text, offset])
 
   return (
@@ -59,7 +54,7 @@ function App() {
     </div>
 
 
-        <BarraNav setInfo={(set)=>setInfo(set)} SetBarrNavVerification={(verification)=>SetBarrNavVerification(verification)}/>
+        <BarraNav set_items={set_items} setInfo={(set)=>setInfo(set)} SetBarrNavVerification={(verification)=>SetBarrNavVerification(verification)}/>
         <SearchInput text={text} onchange={(search)=>setText(search)}/>
       {text && !info.data && (
         <div className='loading_img'>
@@ -79,10 +74,10 @@ function App() {
         //ativado quando apertado alguma opção do menu
       )}
       {description_obj.verification && BarrNavVerification && !text && (
-        <InforDescription Description={description_obj} setDescription={(e)=>set_description_obj(e)}/>
+        <InforDescription set_items={set_items}  items={items} name={'Voltar'} Description={description_obj} setDescription={(e)=>set_description_obj(e)}/>
       )}
   
-      {BarrNavVerification && !info.data && (
+      {!BarrNavVerification && !info.data && (
         <div className='loading_img'>
         <img src='http://portal.ufvjm.edu.br/a-universidade/cursos/grade_curricular_ckan/loading.gif/@@images/image.gif' alt='carregando...'></img>
         </div>
