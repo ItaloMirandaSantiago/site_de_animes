@@ -1,22 +1,25 @@
-import React, { } from "react";
+import React, { useEffect, useState } from "react";
 
-export default function Modal(props) {
+export default function Carousel(props) {
 
-    let moverCarousel = 0
+    const [MoverCarousel, SetMoverCarousel] = useState(2)
 
-    function avancarCarousel(somarOuDiminuir) {
-        if (somarOuDiminuir) {
-            moverCarousel= moverCarousel + 200
-            document.querySelector('.container').style.transform = `translateX(${-moverCarousel + "px"})`
-        }else{
-            moverCarousel = moverCarousel - 200
-            document.querySelector('.container').style.transform = `translateX(${-moverCarousel + "px"})`
-        }
+useEffect(()=>{
+    console.log(MoverCarousel)
+    if (MoverCarousel >= -62 && MoverCarousel <= 2) {
+        document.querySelector(".container").style.transform =`translateX(${MoverCarousel}%)`   
+    }else if (MoverCarousel <= -62) {
+        SetMoverCarousel(-62)
+        document.querySelector(".container").style.transform =`translateX(-56%)`   
+    }else if (MoverCarousel >= 2){
+        SetMoverCarousel(2)
     }
+}, [MoverCarousel])
 
     return(
-        <div>
+        <div className="carousel">
             <div className="container">
+            <button className="button_esquerda" onClick={()=>SetMoverCarousel((e)=>e+10)}><img width="50px" src="https://cdn-icons-png.flaticon.com/128/271/271220.png" /></button>
                 {props.animes.data.map((item)=>(
                     <li key={item.id} className={item.id}>
                         <button className="img_comprimida" onClick={()=>props.verification(item)}>
@@ -27,9 +30,8 @@ export default function Modal(props) {
                         </button>
                     </li>
                     ))}
+            <button className="button_direita" onClick={()=>SetMoverCarousel((e)=>e-10)}><img width="50px" src="https://cdn-icons-png.flaticon.com/128/271/271228.png" /></button>
             </div>
-                            <button onClick={()=>{avancarCarousel(false)}}>voltar</button>
-                            <button onClick={()=>{avancarCarousel(true)}}>avançar</button>
         </div>
     )
 }

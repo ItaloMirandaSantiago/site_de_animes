@@ -1,12 +1,29 @@
-.container{
-        width: fit-content;
-        display: flex;
-        flex-direction: row;
-        scroll-behavior: smooth;
-        background-color:darkgray;
-        transition: transform 0.5s ease-in-out;
-        li{
-            margin: 10px;
-            list-style-type: none;
-        }
+.carousel{
+    position: relative;
+    display: flex;
+    flex-grow: 0, 1, 0;
+    .container{
+            width: fit-content;
+            display: flex;
+            flex-direction: row;
+            scroll-behavior: smooth;
+            background-color:darkgray;
+            transition: transform 0.5s ease-in-out;
+            li{
+                margin: 10px;
+                list-style-type: none;
+            }
+    }
+}
+
+.button_esquerda{
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+}
+
+.button_direita{
+    position: absolute;
+    right: 0%;
+    height: 100%;
 }

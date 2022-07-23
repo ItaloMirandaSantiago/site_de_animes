@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import InforDescription from "./inforDescription";
-import Carousel from "./carousel";
+import Carousel from "./Carousel";
 //aba de inicio sobre melhores animes
 
 export default function BestAnimes(props) {
