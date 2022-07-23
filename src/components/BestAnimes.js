@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import InforDescription from "./inforDescription";
+import Carousel from "./carousel";
 //aba de inicio sobre melhores animes
 
 export default function BestAnimes(props) {
@@ -32,18 +33,8 @@ export default function BestAnimes(props) {
         )}
 
             {animes.data && !Description.verification &&(
-                <ul className='animes-list'>
-
-                    {animes.data.map((item)=>(
-                            <li key={item.id} className={item.id}>
-                                <button className="img_comprimida" onClick={()=>verification(item)}>
-                                    <img src={item.attributes.posterImage.tiny} 
-                                    alt={item.attributes.canonicalTitle}
-                                    />
-                                    <p>{item.attributes.canonicalTitle}</p>
-                                </button>
-                            </li>
-                    ))}
+                <ul>
+                    <Carousel animes={animes} verification={(i)=>{verification(i)}}/>
                 </ul>
             )}
             

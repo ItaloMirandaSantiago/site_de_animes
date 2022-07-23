@@ -1,0 +1,12 @@
+.container{
+        width: fit-content;
+        display: flex;
+        flex-direction: row;
+        scroll-behavior: smooth;
+        background-color:darkgray;
+        transition: transform 0.5s ease-in-out;
+        li{
+            margin: 10px;
+            list-style-type: none;
+        }
+}
