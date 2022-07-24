@@ -8,14 +8,22 @@ useEffect(()=>{
     console.log(MoverCarousel)
 
     if (MoverCarousel >= -62 && MoverCarousel <= 0) {
-       // document.querySelector(".container").style.transform =`translateX(${MoverCarousel}%)`   
+        document.querySelector(".container").style.transform =`translateX(${MoverCarousel}%)`   
     }else if (MoverCarousel <= -62) {
-      //  SetMoverCarousel(-62)
-    //    document.querySelector(".container").style.transform =`translateX(-56%)`   
+        SetMoverCarousel(-62)
+        document.querySelector(".container").style.transform =`translateX(-56%)`   
     }else if (MoverCarousel >= 0){
-  //      SetMoverCarousel(0)
+        SetMoverCarousel(0)
     }
 }, [MoverCarousel])
+
+    useEffect(()=>{
+        fetch('https://kitsu.io/api/edge/manga')
+        .then((res)=>res.json())
+        .then((res)=>{
+            console.log(res)
+        })
+    }, [])
 
     return(
         <div className="carousel">

@@ -12,20 +12,20 @@ export default function BestAnimes(props) {
     function verification(item) {
         item['verification'] = true
         SetDescription(item)
-        //ser         props.setDescription(true)
     }
     useEffect(()=>{
-            fetch('https://kitsu.io/api/edge/anime?page[limit]=15')
+            fetch(props.API)
             .then((res)=>res.json())
             .then((res)=>{
                 setAnimes(res)
             })
+            // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return(
         <div className="informations">
             <div className="ocupar">
-            <h2>Animes mais vistos</h2>
+            <h2>{props.name}</h2>
         {!animes.data && (
             <div className='loading_img'>
                 <img src='http://portal.ufvjm.edu.br/a-universidade/cursos/grade_curricular_ckan/loading.gif/@@images/image.gif' alt='carregando...'></img>

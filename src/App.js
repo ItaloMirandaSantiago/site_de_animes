@@ -4,7 +4,7 @@ import SearchInput from './components/Search_input'
 import Results from './components/Results'
 import Description from './components/Description'
 import Infomations from './components/Informations'
-import BestAnimes from './components/BestAnimes'
+import ResultsPageMain from './components/ResultsPageMain'
 import Pagination from './components/Pagination'
 import BarraNav from './components/BarraNav'
 import InforDescription from './components/inforDescription'
@@ -66,7 +66,9 @@ function App() {
       {!text && !BarrNavVerification && (
         <div className='infor'>
               <Infomations set_items={set_items}  items={items} description_item={(obj)=>set_description_obj(obj)}/>
-              <BestAnimes set_items={set_items}  items={items}/>
+              <ResultsPageMain set_items={set_items}  items={items} name={"Animes mais vistos"} API={"https://kitsu.io/api/edge/anime?page[limit]=15"}/>
+              
+              <ResultsPageMain set_items={set_items} items={items} name={"Mangas que talvez voce goste"} API={"https://kitsu.io/api/edge/manga?page[limit]=15"}/>
         </div>
       )}
 
